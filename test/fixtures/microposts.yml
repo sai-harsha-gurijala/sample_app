@@ -44,12 +44,3 @@ van:
   content: "Dude, this van's, like, rolling probable cause."
   created_at: <%= 4.hours.ago %>
   user: lana
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  content: MyText
-  user: one
-
-two:
-  content: MyText
-  user: two

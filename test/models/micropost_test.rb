@@ -30,10 +30,3 @@ class MicropostTest < ActiveSupport::TestCase
     assert_equal microposts(:most_recent), Micropost.first
   end
 end
-require "test_helper"
-
-class MicropostTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-end
