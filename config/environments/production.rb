@@ -68,4 +68,6 @@ Rails.application.configure do
 
   # Allow connections to local server.
   config.hosts.clear
+  
+  config.assets.js_compressor = Uglifier.new(harmony: true)
 end
