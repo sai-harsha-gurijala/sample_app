@@ -31,8 +31,12 @@ ActiveRecord::Schema.define(version: 2022_03_03_034158) do
     t.string "activation_digest"
     t.boolean "activated", default: false
     t.datetime "activated_at"
+    t.string "reset_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
+
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
 
   add_foreign_key "microposts", "users"
 end

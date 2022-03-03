@@ -1,6 +1,8 @@
 
   
 Rails.application.configure do
+  # Store uploaded files on Amazon AWS.
+  config.active_storage.service = :amazon
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -68,6 +70,7 @@ Rails.application.configure do
 
   # Allow connections to local server.
   config.hosts.clear
+  end
   
   #config.assets.js_compressor = Uglifier.new(harmony: true)
 end
