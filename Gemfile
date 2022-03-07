@@ -43,7 +43,6 @@ end
 group :production do
   gem 'pg',         '1.2.3'
   gem 'aws-sdk-s3', '1.87.0', require: false
-  gem 'mini_racer'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
