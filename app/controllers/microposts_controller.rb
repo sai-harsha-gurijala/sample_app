@@ -1,6 +1,7 @@
 class MicropostsController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: [:create, :share, :destroy]
   before_action :correct_user,   only: :destroy
+ 
 
   def create
     @micropost = current_user.microposts.build(micropost_params)
@@ -13,7 +14,16 @@ class MicropostsController < ApplicationController
       render 'static_pages/home'
     end
   end
-
+ 
+  def share
+    original_post = Micropost.find(params[:share_id])
+    @micropost = current_user.microposts.build(content: original_post.content)
+    if @micropost.save
+      flash[:success] = "Micropost Shared!"
+      redirect_to root_url
+    end
+  end
+  
   def destroy
     @micropost.destroy
     flash[:success] = "Micropost deleted"
@@ -23,7 +33,7 @@ class MicropostsController < ApplicationController
       redirect_to request.referrer
     end
   end
-
+ 
   private
 
     def micropost_params
@@ -34,4 +44,5 @@ class MicropostsController < ApplicationController
       @micropost = current_user.microposts.find_by(id: params[:id])
       redirect_to root_url if @micropost.nil?
     end
+    
 end
