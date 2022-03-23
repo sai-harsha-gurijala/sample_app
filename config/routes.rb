@@ -12,11 +12,17 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+  
+  
+  
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :microposts,          only: [:create, :destroy]
   resources :relationships,       only: [:create, :share, :destroy]
   
   match 'microposts/share', to: 'microposts#share', via: [:post]
+  
+  resources :likes, only: [:create, :destroy]
+  match 'likes/destroy', to: 'likes#destroy', via: [:post]
   
 end
